@@ -1,10 +1,10 @@
 'use client'
-import { supabase } from '../../lib/supabaseClient'
+import { getSupabase } from '../../lib/supabaseClient'
 import { Github } from 'lucide-react'
 
 export default function SignIn() {
   const handleLogin = async () => {
-    await supabase.auth.signInWithOAuth({
+    await getSupabase().auth.signInWithOAuth({
       provider: 'github',
       options: { redirectTo: `${window.location.origin}/auth/callback` }
     })
